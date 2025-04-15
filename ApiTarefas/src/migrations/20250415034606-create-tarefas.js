@@ -18,9 +18,9 @@ module.exports = {
                 allowNull: false,
             },
             status: {
-                type: Sequelize.ENUM('aberto', 'em andamento', 'concluindo'),
+                type: Sequelize.ENUM('aberta', 'em andamento', 'concluida'),
                 allowNull: false,
-                defaultValue: 'aberto',
+                defaultValue: 'aberta',
             },
             conjuntoId: {
                 type: Sequelize.INTEGER,
