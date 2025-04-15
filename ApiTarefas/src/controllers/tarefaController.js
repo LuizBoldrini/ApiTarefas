@@ -3,8 +3,12 @@ const { Tarefa } = require('../models');
 module.exports = {
     async listar(req, res) {
         try {
-            const { conjunto_id } = req.params;
-            const tarefas = await Tarefa.findAll({ where: { conjunto_id } });
+            const { conjuntoId } = req.params;
+            const tarefas = await Tarefa.findAll({ where: { conjuntoId } });
+
+            if (tarefas.length === 0) {
+                return res.status(404).json({ message: 'Este conjunto ainda não possui tarefas' });
+            }
             res.json(tarefas);
         } catch (error) {
             res.status(500).json({ error: 'Erro ao listar tarefas' });

@@ -8,14 +8,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         descricao: {
             type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true,
+            defaultValue: 'Sem descrição',
         },
         status: {
             type: DataTypes.ENUM('aberto', 'em andamento', 'concluindo'),
             allowNull: false,
             defaultValue: 'aberto',
         },
-        conjunto_id: {
+        conjuntoId: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -25,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     });
     Tarefa.associate = function (models) {
         Tarefa.belongsTo(models.Conjunto, {
-            foreignKey: 'conjunto_id',
-            as: 'conjunto'
+            foreignKey: 'conjuntoId',
+            as: 'conjuntos'
         });
     };
     return Tarefa;

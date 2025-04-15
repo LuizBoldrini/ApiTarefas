@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true
         },
-        usuario_id: {
+        usuarioId: {
             type: DataTypes.INTEGER,
             allowNull: false
         }
@@ -20,11 +20,11 @@ module.exports = (sequelize, DataTypes) => {
     });
     Conjunto.associate = function (models) {
         Conjunto.belongsTo(models.Usuario, {
-            foreignKey: 'usuario_id',
+            foreignKey: 'usuarioId',
             as: 'usuario'
         });
     Conjunto.hasMany(models.Tarefa, {
-        foreignKey: 'conjunto_id',
+        foreignKey: 'conjuntoId',
         as: 'tarefas'
     });
     };

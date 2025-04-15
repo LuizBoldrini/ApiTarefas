@@ -1,10 +1,23 @@
-const { conjunto } = require('../models');
+const { Conjunto } = require('../models');
 
 module.exports = {
     async listar(req, res) {
-        const { usuario_id } = req.params;
-        const conjunto = await Conjunto.findAll({ where: { usuario_id } });
-        req.json(conjunto);
+        try {
+            const { usuarioId } = req.params;
+            const conjuntos = await Conjunto.findAll({
+                where: { usuarioId: parseInt(usuarioId, 10) },
+                order: [['id', 'ASC']],
+            });
+
+            if (conjuntos.length === 0) {
+                return res.status(404).json({ message: 'Nenhum conjunto encontrado' });
+            }
+
+            return res.status(200).json(conjuntos);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: error.message });
+        }
     },
 
     async criar(req, res) {
@@ -44,6 +57,7 @@ module.exports = {
             await conjunto.destroy();
             res.status(204).send();
         } catch (error) {
+            console.error(error);
             res.status(500).json({ error: 'Erro ao deletar conjunto' });
         }
     },

@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Usuario.associate = function (models) {
         Usuario.hasMany(models.Conjunto, {
-            foreignKey: 'usuario_id',
+            foreignKey: 'usuarioId',
             as: 'conjuntos'
         });
     };
