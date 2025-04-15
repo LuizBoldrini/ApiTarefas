@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 app.use('/usuarios', usuarioRoutes);
 app.use('/conjuntos', conjuntoRoutes);
-app.use('/tarefas', tarefaRoutes);
+app.use('/conjunto/tarefas', tarefaRoutes);
 
 
 module.exports = app;
