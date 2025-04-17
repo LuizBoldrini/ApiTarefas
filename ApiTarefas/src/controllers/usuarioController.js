@@ -6,7 +6,7 @@ module.exports = {
             const usuario = await Usuario.create(req.body);
             res.status(201).json(usuario);
         } catch (error) {
-            res.status(400).json({ error: 'Erro ao cadastrar usuário' });
+            res.status(400).json({ error: 'Erro ao realizar cadastro.' });
         }
     },
 
@@ -15,7 +15,7 @@ module.exports = {
             const { email, senha } = req.body;
             const usuario = await Usuario.findOne({ where: { email, senha } });
             if (!usuario) {
-                return res.status(401).json({ error: 'Usuário ou senha inválidos' });
+                return res.status(401).json({ error: 'Email ou senha incorretos!' });
             }
             res.status(200).json(usuario);
         } catch (error) {
