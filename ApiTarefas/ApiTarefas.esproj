@@ -1,1 +1,6 @@
-<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2191419" />
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2191419">
+  <ItemGroup>
+    <None Remove="src\migrations\20250415174227-alterar-status-tarefa.js" />
+    <None Remove="src\migrations\20250422024859-alterar-enum-status-tarefas.js" />
+  </ItemGroup>
+</Project>
