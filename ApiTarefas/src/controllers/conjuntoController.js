@@ -32,12 +32,14 @@ module.exports = {
     async atualizar(req, res) {
         try {
             const { id } = req.params;
-            const { descricao } = req.body;
+            const { nome, descricao } = req.body;
 
             const conjunto = await Conjunto.findByPk(id);
             if (!conjunto) {
                 return res.status(404).json({ error: 'Nenhum conjunto encontrado!' });
             }
+
+            conjunto.nome = nome;
             conjunto.descricao = descricao;
             await conjunto.save();
 
