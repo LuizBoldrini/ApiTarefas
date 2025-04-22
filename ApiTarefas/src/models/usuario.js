@@ -9,7 +9,12 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                isEmail: {
+                    msg: 'Formato de email incorreto!'
+                }
+            }
         },
         senha: {
             type: DataTypes.STRING,

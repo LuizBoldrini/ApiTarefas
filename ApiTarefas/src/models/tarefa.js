@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: 'Sem descricao',
         },
         status: {
-            type: DataTypes.ENUM('aberta', 'em andamento', 'concluida'),
+            type: DataTypes.ENUM('Aberta', 'Em andamento', 'Completa'),
             allowNull: false,
-            defaultValue: 'aberta',
+            defaultValue: 'Aberta',
         },
         conjuntoId: {
             type: DataTypes.INTEGER,
