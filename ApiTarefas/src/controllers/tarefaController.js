@@ -22,15 +22,16 @@ module.exports = {
             res.status(400).json({ error: 'Erro ao criar tarefa.' });
         }
     },
-    async edtiarNome(req, res) {
+    async atualizar(req, res) {
         try {
             const { id } = req.params;
-            const { nome } = req.body;
+            const { nome, descricao } = req.body;
             const tarefa = await Tarefa.findByPk(id);
             if (!tarefa) {
                 return res.status(404).json({ error: 'Nenhuma tarefa localizada!' });
             }
             tarefa.nome = nome;
+            tarefa.descricao = descricao;
             await tarefa.save();
 
             res.status(200).json(tarefa);
