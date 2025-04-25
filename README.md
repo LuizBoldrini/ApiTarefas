@@ -49,7 +49,7 @@ USUÁRIOS
 
 CONJUNTO
 
-- POST ``/conjunto/cadastrar`` - Cadastra um novo conjunto
+- POST ``/conjuntos/cadastrar`` - Cadastra um novo conjunto
 ```
 {
   "nome": "Conjunto 1",
@@ -58,39 +58,41 @@ CONJUNTO
 }
 ```
 
-- GET ``/conjunto/listar/id`` - Lista todos os conjuntos do usuário
+- GET ``/conjuntos/id`` - Lista todos os conjuntos do usuário
 
-- PUT ``/conjunto/id`` - Atualiza nome do conjunto
+- PUT ``/conjuntos/editar/id`` - Atualiza nome do conjunto
 ```
 {
-  "descricao": "Conjunto 1"
+    "nome": "Nome",
+    "descricao": "Decricao"
 }
 ```
 
-- DELETE ``/conjunto/id`` - Deleta o conjunto
+- DELETE ``/conjuntos/id`` - Deleta o conjunto
 
 
 TAREFA
 
-- POST ``/conjunto/tarefas`` - Cadastra uma nova tarefa
+- POST ``/conjunto/tarefas/cadastrar`` - Cadastra uma nova tarefa
 ```
 {
   "nome": "Tarefa 1",
-  "descricao": "teste tarefa 1",
+  "descricao": "Descricao tarefa 1",
   "conjuntoId": 1
 }
 ```
 
 - GET ``/conjunto/tarefas/id`` - Lista todas as tarefas do conjunto
 
-- PUT ``/conjunto/tarefas/nome/id`` - Atualiza nome da tarefa
+- PUT ``/conjunto/tarefas/nome/id`` - Atualiza nome e descrição da tarefa
 ```
 {
   "nome": "Tarefa 1"
+  "descricao": "Descricao tarefa 1"
 }
 ```
 
-- PUT ``/conjunto/tarefas/status/id`` - Atualiza status da tarefa
+- PUT ``/conjunto/tarefas/editar/status/id`` - Atualiza status da tarefa
 ```
 {
   "status": "concluida"
